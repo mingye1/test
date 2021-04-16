@@ -12,7 +12,10 @@ from appium.webdriver.common.touch_action import TouchAction
 
 from appium.webdriver.mobilecommand import MobileCommand
 
+'''
+自助入司
 
+'''
 class MyTests(unittest.TestCase):
     # 测试开始前执行的方法
     def setUp(self):
@@ -56,13 +59,12 @@ class MyTests(unittest.TestCase):
         except:
             print("已自动登录！")
 
-        #点击产品中心
-        # el7=driver.find_element_by_xpath('/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/com.tencent.tbs.core.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[1]/android.view.View[7]')
+        #点击更多按钮
         el7 = driver.find_element_by_xpath(#SIT
-            "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/com.tencent.tbs.core.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[1]/android.view.View[8]")
-
+            "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/com.tencent.tbs.core.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[1]/android.view.View[11]/android.view.View[1]/android.widget.Image")
         el7.click()
-        #点击增爱一生B
+        time.sleep(2)
+        #点击
         el8 = driver.find_element_by_xpath(
             "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/com.tencent.tbs.core.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[3]/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]/android.view.View[1]")
         el8.click()
@@ -195,14 +197,14 @@ class MyTests(unittest.TestCase):
         # TouchAction(driver).press(a).move_to(x=500, y=1600).press().perform()
         print(driver.contexts)
         driver.execute(MobileCommand.SWITCH_TO_CONTEXT, {"name": "NATIVE_APP"})
-        TouchAction(driver).press(x=545, y=1770).wait(2000).move_to(x=549, y=1962).wait(2000).release().perform()
-        # a_1=driver.find_element_by_xpath('/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/com.tencent.tbs.core.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View[1]/android.view.View[9]/android.view.View[2]/android.view.View/android.view.View[2]')
-        # TouchAction(driver).press(a).move_to(a_1).release().perform()
+        TouchAction(driver).press(x=545, y=1770).move_to(x=549, y=1962).release().perform()
+        a_1=driver.find_element_by_xpath('/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/com.tencent.tbs.core.webkit.WebView/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View[1]/android.view.View[9]/android.view.View[2]/android.view.View/android.view.View[2]')
+        TouchAction(driver).press(a).move_to(a_1).release().perform()
         # TouchAction(driver).press(x=545, y=1770).move_to(x=549, y=1662).release().perform()
         #
         # TouchAction(driver).press(x=526, y=1770).move_to(x=521, y=1874).release().perform()
         print(driver.page_source)
-        time.sleep(10)
+        time.sleep(5)
 
         #点击确定
         el22=driver.find_element_by_xpath('//android.widget.Button["确定"]')
